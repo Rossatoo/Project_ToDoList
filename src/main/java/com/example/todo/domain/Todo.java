@@ -1,5 +1,6 @@
 package com.example.todo.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,6 +12,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 
 @Data
@@ -26,7 +28,9 @@ public class Todo implements Serializable {
 
     private String titulo;
     private String descricao;
-    private LocalDateTime dataParaFinalizar;
+
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    private Date dataParaFinalizar;
 
     private boolean finalizado = false;
 
